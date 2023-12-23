@@ -15,10 +15,10 @@ aws k8s解决方案。
 
 【2】 部署eks
 
-- terraform init
-- terraform validate
-- terraform plan -out tfplan
-- terraform apply ./eks
+- terraform init  下载provider的代码以及插件
+- terraform validate  校验语法
+- terraform plan -out tfplan  生成计划，需要确认下创建与删除的资源。类似于k8s的 --dry-run
+- terraform apply ./eks  实际执行，也会执行plan 再次让你确认才会真正创建资源
 
 【3】 查看集群
 k get node
