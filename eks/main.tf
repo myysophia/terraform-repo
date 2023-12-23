@@ -92,10 +92,11 @@ module "eks" {
 
 
 # https://aws.amazon.com/blogs/containers/amazon-ebs-csi-driver-is-now-generally-available-in-amazon-eks-add-ons/ 
+#  用于获取和使用由其他人或服务创建的数据。它们在 Terraform 配置中允许你引用不是由当前配置管理的资源。
 data "aws_iam_policy" "ebs_csi_policy" {
   arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
 }
-
+# 这个模块配置了一个 IAM 角色，允许特定的 Kubernetes 服务账户通过 EKS 集群的 OIDC 提供者进行身份验证，并赋予了它访问 AWS 资源的权限（具体是 EBS CSI 相关的权限）
 module "irsa-ebs-csi" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
   version = "4.7.0"
