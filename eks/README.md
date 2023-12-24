@@ -5,7 +5,30 @@ terraform 可以将基础架构用代码的方式进行表示，也就是IaC的�
 因为aws的平台是一致的，只需要配置自己的凭证就可以快速构建基础设施。
 # EKS
 aws k8s解决方案。
-- main.tf 中定义了主要逻辑，包括创建eks的各种资源例如provider 、 各种moudle(vpc/subnet/eip/igw/nat gw/eks/addons), 以及一些变量
+- main.tf 中定义了主要逻辑，包括创建eks的各种资源例如provider 、 各种moudle(vpc/subnet/eip/igw/nat gw/eks/addons), 以及一些变量。
+providers 中的profile 和aws 的config一致，会自动读取~/.aws/credentials对应的AK/SK。
+```
+provider "aws" {
+  region = var.region
+**  profile = "tf-test"**
+}
+
+# ~/.aws/config
+[default]
+region = us-east-1
+**[tf-test]
+region = us-east-2**
+
+# ~/.aws/credentials
+[default]
+aws_access_key_id = XXXX
+aws_secret_access_key = xxxx
+**[tf-test]
+aws_access_key_id = XXXX
+aws_secret_access_key = xxxx**
+
+```
+  
 - terraform.tf 中定义的使用的hashicorp插件， 执行terraform init的就是在下载这些插件
 - variable.tf 定义了公用变量，根据实际情况抽取
 - output.tf 定义了apply时输出的格式
