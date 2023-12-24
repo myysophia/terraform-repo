@@ -10,22 +10,22 @@ providers 中的profile 和aws 的config一致，会自动读取~/.aws/credentia
 ```
 provider "aws" {
   region = var.region
-**  profile = "tf-test"**
+  profile = "tf-test"
 }
 
 # ~/.aws/config
 [default]
 region = us-east-1
-**[tf-test]
-region = us-east-2**
+[tf-test]
+region = us-east-2
 
 # ~/.aws/credentials
 [default]
 aws_access_key_id = XXXX
 aws_secret_access_key = xxxx
-**[tf-test]
+[tf-test]
 aws_access_key_id = XXXX
-aws_secret_access_key = xxxx**
+aws_secret_access_key = xxxx
 
 ```
   
