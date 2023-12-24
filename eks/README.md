@@ -45,6 +45,7 @@ aws_secret_access_key = xxxx
 - terraform validate  校验语法
 - terraform plan -out tfplan  生成计划，需要确认下创建与删除的资源。类似于k8s的 --dry-run
 - terraform apply ./eks  实际执行，也会执行plan 再次让你确认才会真正创建资源
+- terraform destroy 删除eks 所有资源。[参考]([url](https://gist.github.com/myysophia/65ee79af5d42b8e7c3266f8a88dfcf49))
 
 【3】 查看集群
 k get node
