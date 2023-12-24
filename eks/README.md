@@ -1,5 +1,8 @@
 # 背景
-接触到aws，这里记录一些terraform的脚本
+接触到aws，这里记录一些terraform的脚手架代码。
+terraform 可以将基础架构用代码的方式进行表示，也就是IaC的概念，基础设施即代码。
+可以将terraform代码库用git 进行管理，进行版本管控,共享给其他人；避免在控制台手动创建，手动创建耗时、且依靠人的记忆、易出错。
+因为aws的平台是一致的，只需要配置自己的凭证就可以快速构建基础设施。
 # EKS
 aws k8s解决方案。
 - main.tf 中定义了主要逻辑，包括创建eks的各种资源例如provider 、 各种moudle(vpc/subnet/eip/igw/nat gw/eks/addons), 以及一些变量
@@ -10,7 +13,7 @@ aws k8s解决方案。
 - log目录中是执行的日志
 ## 使用说明
 【1】 配置好aws 凭证
-注意生成凭证时选择正确的类型
+**注意生成凭证时选择正确的类型**
 ![image](https://github.com/myysophia/terraform-repo/assets/25994521/c042138e-a8e0-4b34-98a9-f87591d5855c)
 
 【2】 部署eks
