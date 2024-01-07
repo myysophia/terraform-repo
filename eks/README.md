@@ -36,7 +36,15 @@ aws_secret_access_key = xxxx
 - log目录中是执行的日志
 ## 使用说明
 【0】 tips
-1. 关于变量，如果变量没有default值，则会在执行apply时提示你输入变量的值。
+1. 关于输入变量，如果变量没有default值，则会在执行apply时提示你输入变量的值。
+   ```
+   variable "ami" {
+      default = "ami-0ac73f33a1888c64a"
+   }
+```
+   或者可以使用terraform apply -var 'ami=123123' 覆盖变量的默认值。
+   或者可以使用环境变量进行导出，export TF_VAR_ami="123231".  unset TF_VAR_ami 快速取消这个变量
+   或者创建一个terraform.tfvars 将变量填入，ami="123123"
 【1】 配置好aws 凭证
 **注意生成凭证时选择正确的类型**
 ![image](https://github.com/myysophia/terraform-repo/assets/25994521/c042138e-a8e0-4b34-98a9-f87591d5855c)
