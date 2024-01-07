@@ -41,7 +41,7 @@ aws_secret_access_key = xxxx
    variable "ami" {
       default = "ami-0ac73f33a1888c64a"
    }
-```
+
    或者可以使用terraform apply -var 'ami=123123' 覆盖变量的默认值。
    或者可以使用环境变量进行导出，export TF_VAR_ami="123231".  unset TF_VAR_ami 快速取消这个变量
    或者创建一个terraform.tfvars 将变量填入，ami="123123"
