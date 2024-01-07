@@ -45,7 +45,7 @@ aws_secret_access_key = xxxx
    或者创建一个terraform.tfvars 将变量填入，ami="123123"
 2. 输出变量
    ```
-     # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip
+     #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip
 #Resource: aws_eip
 resource "aws_eip" "ip" {
   vpc      = true
@@ -56,10 +56,9 @@ output "ip" {
   value = aws_eip.ip.public_ip
 }
 
-   
-terraform apply 会输出绑定到哦EIP。
+terraform apply 会输出展示EIP。
 
-4. 团队协作使用terraform创建资源，tfstate需要使用S3 + dynamicDB作为后端管理状态，[参考]([url](https://github.com/antonputra/tutorials/blob/main/lessons/040/provider.tf))
+3. 团队协作使用terraform创建资源，tfstate需要使用S3 + dynamicDB作为后端管理状态，[参考]([url](https://github.com/antonputra/tutorials/blob/main/lessons/040/provider.tf))
 需要有S3 + dynamicDB的权限。
 
 【1】 配置好aws 凭证
