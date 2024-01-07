@@ -35,6 +35,8 @@ aws_secret_access_key = xxxx
 - tfplan 是terraform plan生成的计划，用于确认集群的配置是否正确
 - log目录中是执行的日志
 ## 使用说明
+【0】 tips
+1. 关于变量，如果变量没有default值，则会在执行apply时提示你输入变量的值。
 【1】 配置好aws 凭证
 **注意生成凭证时选择正确的类型**
 ![image](https://github.com/myysophia/terraform-repo/assets/25994521/c042138e-a8e0-4b34-98a9-f87591d5855c)
