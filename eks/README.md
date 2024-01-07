@@ -46,19 +46,21 @@ aws_secret_access_key = xxxx
 2. 输出变量
    ```
    # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip
-# Resource: aws_eip
+#Resource: aws_eip
 
 resource "aws_eip" "ip" {
   vpc      = true
   instance = aws_instance.server.id
 }
-# output.tf 
+#output.tf 
 output "ip" {
   value = aws_eip.ip.public_ip
 }
 terraform apply 会输出绑定到哦EIP。
+
 3. 团队协作使用terraform创建资源，tfstate需要使用S3 + dynamicDB作为后端管理状态，[参考]([url](https://github.com/antonputra/tutorials/blob/main/lessons/040/provider.tf))
 需要有S3 + dynamicDB的权限。
+
 【1】 配置好aws 凭证
 **注意生成凭证时选择正确的类型**
 ![image](https://github.com/myysophia/terraform-repo/assets/25994521/c042138e-a8e0-4b34-98a9-f87591d5855c)
