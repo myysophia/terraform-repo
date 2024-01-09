@@ -15,6 +15,6 @@ terraform {
     bucket         = "novatest-tfstate"
     key            = "services/server.tfstate"
     region         = "us-west-2"
-	# dynamodb_table = "tfstate"
+    # dynamodb_table = "tfstate"
   }
 }
