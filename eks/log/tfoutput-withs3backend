@@ -1,0 +1,490 @@
+ terraform apply
+Acquiring state lock. This may take a few moments...
+random_string.suffix: Refreshing state... [id=EkOsjQs9]
+module.eks.data.aws_partition.current: Reading...
+module.irsa-ebs-csi.data.aws_partition.current: Reading...
+data.aws_availability_zones.available: Reading...
+data.aws_iam_policy.ebs_csi_policy: Reading...
+module.eks.data.aws_caller_identity.current: Reading...
+module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-0c2ef26fba17c85d2]
+module.eks.module.eks_managed_node_group["two"].data.aws_partition.current: Reading...
+module.eks.module.kms.data.aws_partition.current: Reading...
+module.eks.module.eks_managed_node_group["one"].data.aws_partition.current: Reading...
+module.irsa-ebs-csi.data.aws_partition.current: Read complete after 0s [id=aws]
+module.eks.data.aws_partition.current: Read complete after 0s [id=aws]
+module.eks.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/eks/nova-eks-terraform/cluster]
+module.eks.module.eks_managed_node_group["two"].data.aws_partition.current: Read complete after 0s [id=aws]
+module.eks.module.kms.data.aws_partition.current: Read complete after 0s [id=aws]
+module.eks.module.eks_managed_node_group["one"].data.aws_partition.current: Read complete after 0s [id=aws]
+module.eks.module.eks_managed_node_group["two"].data.aws_caller_identity.current: Reading...
+module.eks.module.eks_managed_node_group["one"].data.aws_caller_identity.current: Reading...
+module.eks.data.aws_iam_policy_document.assume_role_policy[0]: Reading...
+module.eks.module.kms.data.aws_caller_identity.current: Reading...
+module.irsa-ebs-csi.data.aws_caller_identity.current: Reading...
+module.eks.data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2764486067]
+module.eks.module.eks_managed_node_group["two"].data.aws_iam_policy_document.assume_role_policy[0]: Reading...
+module.eks.data.aws_caller_identity.current: Read complete after 0s [id=059012766390]
+module.eks.module.eks_managed_node_group["two"].data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2560088296]
+module.eks.module.eks_managed_node_group["one"].data.aws_iam_policy_document.assume_role_policy[0]: Reading...
+module.eks.aws_iam_role.this[0]: Refreshing state... [id=nova-eks-terraform-cluster-20240109013110768100000001]
+module.irsa-ebs-csi.data.aws_caller_identity.current: Read complete after 0s [id=059012766390]
+module.eks.module.eks_managed_node_group["one"].data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2560088296]
+module.eks.data.aws_iam_session_context.current: Reading...
+module.eks.data.aws_iam_session_context.current: Read complete after 0s [id=arn:aws:iam::059012766390:user/apikey-ops]
+module.eks.module.eks_managed_node_group["two"].aws_iam_role.this[0]: Refreshing state... [id=node-group-2-eks-node-group-20240109013110769100000002]
+module.eks.module.eks_managed_node_group["two"].data.aws_caller_identity.current: Read complete after 0s [id=059012766390]
+module.eks.module.eks_managed_node_group["one"].aws_iam_role.this[0]: Refreshing state... [id=node-group-1-eks-node-group-20240109013110770700000003]
+module.eks.module.eks_managed_node_group["one"].data.aws_caller_identity.current: Read complete after 0s [id=059012766390]
+module.eks.module.kms.data.aws_caller_identity.current: Read complete after 0s [id=059012766390]
+data.aws_iam_policy.ebs_csi_policy: Read complete after 0s [id=arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy]
+module.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"]: Refreshing state... [id=nova-eks-terraform-cluster-20240109013110768100000001-2024010901311119560000000b]
+module.eks.aws_iam_role_policy_attachment.this["AmazonEKSVPCResourceController"]: Refreshing state... [id=nova-eks-terraform-cluster-20240109013110768100000001-2024010901311119550000000a]
+module.eks.module.kms.data.aws_iam_policy_document.this[0]: Reading...
+module.eks.module.kms.data.aws_iam_policy_document.this[0]: Read complete after 0s [id=2904358739]
+module.eks.module.kms.aws_kms_key.this[0]: Refreshing state... [id=969b502d-4f31-44ed-a737-e8494a5ebd71]
+module.eks.module.eks_managed_node_group["two"].aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"]: Refreshing state... [id=node-group-2-eks-node-group-20240109013110769100000002-20240109013111090000000007]
+module.eks.module.eks_managed_node_group["one"].aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=node-group-1-eks-node-group-20240109013110770700000003-20240109013111017700000004]
+module.eks.module.eks_managed_node_group["one"].aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"]: Refreshing state... [id=node-group-1-eks-node-group-20240109013110770700000003-20240109013111035200000005]
+module.eks.module.eks_managed_node_group["one"].aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=node-group-1-eks-node-group-20240109013110770700000003-20240109013111039500000006]
+module.eks.module.eks_managed_node_group["two"].aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=node-group-2-eks-node-group-20240109013110769100000002-20240109013111096100000009]
+module.eks.module.eks_managed_node_group["two"].aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=node-group-2-eks-node-group-20240109013110769100000002-20240109013111092700000008]
+data.aws_availability_zones.available: Read complete after 1s [id=ap-southeast-2]
+module.eks.module.kms.aws_kms_alias.this["cluster"]: Refreshing state... [id=alias/eks/nova-eks-terraform]
+module.eks.aws_iam_policy.cluster_encryption[0]: Refreshing state... [id=arn:aws:iam::059012766390:policy/nova-eks-terraform-cluster-ClusterEncryption2024010901313262380000000f]
+module.eks.aws_iam_role_policy_attachment.cluster_encryption[0]: Refreshing state... [id=nova-eks-terraform-cluster-20240109013110768100000001-20240109013132878100000010]
+module.vpc.aws_default_route_table.default[0]: Refreshing state... [id=rtb-0bbbb7f8063efd3ab]
+module.vpc.aws_default_network_acl.this[0]: Refreshing state... [id=acl-088fb160569cdc17b]
+module.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-0412d558eeb689c50]
+module.eks.aws_security_group.node[0]: Refreshing state... [id=sg-0904d0c414670c5ce]
+module.vpc.aws_default_security_group.this[0]: Refreshing state... [id=sg-01bf5d00592fc7e28]
+module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-097fec264c2352e7b]
+module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-01fdeed994a2fd878]
+module.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-041611a79a3d0a5f9]
+module.eks.aws_security_group.cluster[0]: Refreshing state... [id=sg-0c09de29e55231243]
+module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-03c6803c7f3170832]
+module.vpc.aws_subnet.private[2]: Refreshing state... [id=subnet-05fcc76839d79823f]
+module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-0f4df25cc83b7a629]
+module.vpc.aws_subnet.public[2]: Refreshing state... [id=subnet-0fe596dd104997c64]
+module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-011ca0a2a530dbe0c]
+module.vpc.aws_eip.nat[0]: Refreshing state... [id=eipalloc-0d3bbe8c38fe5a96c]
+module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-03c6803c7f31708321080289494]
+module.eks.aws_security_group_rule.cluster["ingress_nodes_443"]: Refreshing state... [id=sgrule-1846322333]
+module.eks.aws_security_group_rule.node["ingress_cluster_8443_webhook"]: Refreshing state... [id=sgrule-19505914]
+module.eks.aws_security_group_rule.node["ingress_nodes_ephemeral"]: Refreshing state... [id=sgrule-1717707810]
+module.eks.aws_security_group_rule.node["ingress_self_coredns_tcp"]: Refreshing state... [id=sgrule-3444639626]
+module.eks.aws_security_group_rule.node["ingress_self_coredns_udp"]: Refreshing state... [id=sgrule-1762567269]
+module.eks.aws_security_group_rule.node["egress_all"]: Refreshing state... [id=sgrule-3680385070]
+module.eks.aws_security_group_rule.node["ingress_cluster_443"]: Refreshing state... [id=sgrule-1845489852]
+module.eks.aws_security_group_rule.node["ingress_cluster_9443_webhook"]: Refreshing state... [id=sgrule-1703448881]
+module.eks.aws_security_group_rule.node["ingress_cluster_4443_webhook"]: Refreshing state... [id=sgrule-3677878605]
+module.eks.aws_security_group_rule.node["ingress_cluster_kubelet"]: Refreshing state... [id=sgrule-338358355]
+module.eks.aws_security_group_rule.node["ingress_cluster_6443_webhook"]: Refreshing state... [id=sgrule-309698267]
+module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0512ddd1d168bbc2e]
+module.vpc.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0a56735e5f9dea745]
+module.vpc.aws_route_table_association.private[2]: Refreshing state... [id=rtbassoc-00b25427e98387d88]
+module.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-000259454938aab44]
+module.vpc.aws_route_table_association.public[2]: Refreshing state... [id=rtbassoc-082ebd9e0e19bcbdc]
+module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0b27bfd67b6606f80]
+module.vpc.aws_nat_gateway.this[0]: Refreshing state... [id=nat-0c55a97ef6e2d3fdc]
+module.vpc.aws_route.private_nat_gateway[0]: Refreshing state... [id=r-rtb-01fdeed994a2fd8781080289494]
+module.eks.aws_eks_cluster.this[0]: Refreshing state... [id=nova-eks-terraform]
+module.eks.time_sleep.this[0]: Refreshing state... [id=2024-01-09T01:40:37Z]
+module.irsa-ebs-csi.data.aws_iam_policy_document.assume_role_with_oidc[0]: Reading...
+module.eks.data.tls_certificate.this[0]: Reading...
+module.irsa-ebs-csi.data.aws_iam_policy_document.assume_role_with_oidc[0]: Read complete after 0s [id=299492262]
+module.irsa-ebs-csi.aws_iam_role.this[0]: Refreshing state... [id=AmazonEKSTFEBSCSIRole-nova-eks-terraform]
+module.eks.module.eks_managed_node_group["one"].aws_launch_template.this[0]: Refreshing state... [id=lt-0cc6ba63faa309a6b]
+module.eks.module.eks_managed_node_group["two"].aws_launch_template.this[0]: Refreshing state... [id=lt-06cb5e44f40deb876]
+module.irsa-ebs-csi.aws_iam_role_policy_attachment.custom[0]: Refreshing state... [id=AmazonEKSTFEBSCSIRole-nova-eks-terraform-20240109014007783200000012]
+aws_eks_addon.ebs-csi: Refreshing state... [id=nova-eks-terraform:aws-ebs-csi-driver]
+module.eks.data.tls_certificate.this[0]: Read complete after 1s [id=9c487532a278fce19e21b8856dc33f771a909c70]
+module.eks.aws_iam_openid_connect_provider.oidc_provider[0]: Refreshing state... [id=arn:aws:iam::059012766390:oidc-provider/oidc.eks.ap-southeast-2.amazonaws.com/id/CD5902F8C8CE15252432B9AADC052D74]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # aws_eks_addon.ebs-csi is tainted, so must be replaced
+-/+ resource "aws_eks_addon" "ebs-csi" {
+      ~ arn                      = "arn:aws:eks:ap-southeast-2:059012766390:addon/nova-eks-terraform/aws-ebs-csi-driver/dac675f0-4024-e70f-eec3-369d1fd52105" -> (known after apply)
+      + configuration_values     = (known after apply)
+      ~ created_at               = "2024-01-09T01:40:08Z" -> (known after apply)
+      ~ id                       = "nova-eks-terraform:aws-ebs-csi-driver" -> (known after apply)
+      ~ modified_at              = "2024-01-09T01:40:24Z" -> (known after apply)
+        tags                     = {
+            "eks_addon" = "ebs-csi"
+            "terraform" = "true"
+        }
+        # (5 unchanged attributes hidden)
+    }
+
+  # module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0] will be created
+  + resource "aws_eks_node_group" "this" {
+      + ami_type               = "AL2_x86_64"
+      + arn                    = (known after apply)
+      + capacity_type          = (known after apply)
+      + cluster_name           = "nova-eks-terraform"
+      + disk_size              = (known after apply)
+      + id                     = (known after apply)
+      + instance_types         = [
+          + "t3.small",
+        ]
+      + node_group_name        = (known after apply)
+      + node_group_name_prefix = "node-group-1-"
+      + node_role_arn          = "arn:aws:iam::059012766390:role/node-group-1-eks-node-group-20240109013110770700000003"
+      + release_version        = (known after apply)
+      + resources              = (known after apply)
+      + status                 = (known after apply)
+      + subnet_ids             = [
+          + "subnet-041611a79a3d0a5f9",
+          + "subnet-05fcc76839d79823f",
+          + "subnet-0f4df25cc83b7a629",
+        ]
+      + tags                   = {
+          + "Name" = "node-group-1"
+        }
+      + tags_all               = {
+          + "Name" = "node-group-1"
+        }
+      + version                = "1.28"
+
+      + launch_template {
+          + id      = "lt-0cc6ba63faa309a6b"
+          + name    = (known after apply)
+          + version = "1"
+        }
+
+      + scaling_config {
+          + desired_size = 1
+          + max_size     = 3
+          + min_size     = 1
+        }
+
+      + timeouts {}
+
+      + update_config {
+          + max_unavailable_percentage = 33
+        }
+    }
+
+  # module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0] will be created
+  + resource "aws_eks_node_group" "this" {
+      + ami_type               = "AL2_x86_64"
+      + arn                    = (known after apply)
+      + capacity_type          = (known after apply)
+      + cluster_name           = "nova-eks-terraform"
+      + disk_size              = (known after apply)
+      + id                     = (known after apply)
+      + instance_types         = [
+          + "t3.small",
+        ]
+      + node_group_name        = (known after apply)
+      + node_group_name_prefix = "node-group-2-"
+      + node_role_arn          = "arn:aws:iam::059012766390:role/node-group-2-eks-node-group-20240109013110769100000002"
+      + release_version        = (known after apply)
+      + resources              = (known after apply)
+      + status                 = (known after apply)
+      + subnet_ids             = [
+          + "subnet-041611a79a3d0a5f9",
+          + "subnet-05fcc76839d79823f",
+          + "subnet-0f4df25cc83b7a629",
+        ]
+      + tags                   = {
+          + "Name" = "node-group-2"
+        }
+      + tags_all               = {
+          + "Name" = "node-group-2"
+        }
+      + version                = "1.28"
+
+      + launch_template {
+          + id      = "lt-06cb5e44f40deb876"
+          + name    = (known after apply)
+          + version = "1"
+        }
+
+      + scaling_config {
+          + desired_size = 1
+          + max_size     = 2
+          + min_size     = 1
+        }
+
+      + timeouts {}
+
+      + update_config {
+          + max_unavailable_percentage = 33
+        }
+    }
+
+Plan: 3 to add, 0 to change, 1 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_eks_addon.ebs-csi: Destroying... [id=nova-eks-terraform:aws-ebs-csi-driver]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Creating...
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Creating...
+aws_eks_addon.ebs-csi: Destruction complete after 9s
+aws_eks_addon.ebs-csi: Creating...
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [10s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [20s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [40s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [40s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [1m0s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [1m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [1m0s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [1m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [1m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [1m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [1m20s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [1m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [1m20s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [1m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [1m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [1m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [1m40s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [1m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [1m40s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Still creating... [1m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [1m50s elapsed]
+module.eks.module.eks_managed_node_group["one"].aws_eks_node_group.this[0]: Creation complete after 1m53s [id=nova-eks-terraform:node-group-1-20240109062427018900000001]
+aws_eks_addon.ebs-csi: Still creating... [1m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [2m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [2m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [2m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [2m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [2m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [2m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [2m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [2m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [2m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [2m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [2m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [2m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [3m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [3m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [3m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [3m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [3m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [3m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [3m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [3m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [3m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [3m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [3m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [3m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [4m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [4m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [4m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [4m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [4m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [4m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [4m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [4m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [4m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [4m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [4m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [4m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [5m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [5m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [5m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [5m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [5m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [5m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [5m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [5m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [5m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [5m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [5m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [5m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [6m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [6m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [6m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [6m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [6m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [6m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [6m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [6m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [6m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [6m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [6m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [6m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [7m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [7m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [7m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [7m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [7m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [7m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [7m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [7m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [7m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [7m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [7m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [7m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [8m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [8m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [8m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [8m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [8m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [8m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [8m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [8m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [8m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [8m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [8m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [8m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [9m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [9m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [9m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [9m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [9m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [9m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [9m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [9m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [9m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [9m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [9m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [9m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [10m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [10m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [10m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [10m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [10m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [10m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [10m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [10m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [10m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [10m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [10m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [10m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [11m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [11m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [11m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [11m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [11m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [11m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [11m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [11m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [11m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [11m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [11m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [11m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [12m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [12m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [12m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [12m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [12m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [12m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [12m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [12m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [12m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [12m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [12m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [12m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [13m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [13m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [13m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [13m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [13m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [13m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [13m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [13m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [13m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [13m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [13m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [13m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [14m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [14m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [14m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [14m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [14m20s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [14m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [14m30s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [14m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [14m40s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [14m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [14m50s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [14m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [15m0s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [15m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [15m10s elapsed]
+aws_eks_addon.ebs-csi: Still creating... [15m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [15m20s elapsed]
+aws_eks_addon.ebs-csi: Creation complete after 15m16s [id=nova-eks-terraform:aws-ebs-csi-driver]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [15m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [15m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [15m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [16m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [16m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [16m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [16m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [16m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [16m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [17m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [17m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [17m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [17m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [17m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [17m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [18m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [18m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [18m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [18m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [18m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [18m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [19m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [19m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [19m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [19m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [19m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [19m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [20m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [20m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [20m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [20m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [20m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [20m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [21m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [21m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [21m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [21m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [21m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [21m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [22m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [22m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [22m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [22m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [22m40s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [22m50s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [23m0s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [23m10s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [23m20s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [23m30s elapsed]
+module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0]: Still creating... [23m40s elapsed]
+╷
+│ Error: waiting for EKS Node Group (nova-eks-terraform:node-group-2-20240109062427020900000003) to create: unexpected state 'CREATE_FAILED', wanted target 'ACTIVE'. last error: 1 error occurred:
+│       * eks-node-group-2-20240109062427020900000003-46c67672-67c6-4543-452e-e1f6b7167621: AsgInstanceLaunchFailures: Could not launch On-Demand Instances. VcpuLimitExceeded - You have requested more vCPU capacity than your current vCPU limit of 32 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit. Launching EC2 instance failed.
+│
+│
+│
+│   with module.eks.module.eks_managed_node_group["two"].aws_eks_node_group.this[0],
+│   on .terraform/modules/eks/modules/eks-managed-node-group/main.tf line 308, in resource "aws_eks_node_group" "this":
+│  308: resource "aws_eks_node_group" "this" {
+│
+╵
