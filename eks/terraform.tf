@@ -32,5 +32,15 @@ terraform {
   }
 
   required_version = "~> 1.3"
+
+  backend "s3" {
+    profile        = "nova-tf-test"
+    bucket         = "novastar-tfstate"
+    key            = "services/server.tfstate"
+    region         = "ap-southeast-2"
+    dynamodb_table = "tfstate"
+    
+  }
+
 }
 
