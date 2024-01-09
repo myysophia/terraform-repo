@@ -61,6 +61,11 @@ terraform apply 会输出展示EIP。
 3. 团队协作使用terraform创建资源，tfstate需要使用S3 + dynamicDB作为后端管理状态，[参考]([url](https://github.com/antonputra/tutorials/blob/main/lessons/040/provider.tf))
 需要有S3 + dynamicDB的权限。
 
+4. 生成kubeconfig
+确保在 ~/.aws/credentials 和 ~/.aws/config 文件中正确配置了 profile，包括它的名称、访问密钥、秘密密钥和可选的默认区域。
+aws eks update-kubeconfig --region <region-code> --name <cluster-name>
+aws eks update-kubeconfig --region ap-southeast-2 --name nova-eks-terraform
+
 【1】 配置好aws 凭证
 **注意生成凭证时选择正确的类型**
 ![image](https://github.com/myysophia/terraform-repo/assets/25994521/c042138e-a8e0-4b34-98a9-f87591d5855c)
