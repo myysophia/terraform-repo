@@ -17,6 +17,13 @@ aws_autoscaling_group 利用 aws_launch_configuration 来管理一组 EC2 实例
 容错和高可用性：通过在多个可用区中分布实例来确保应用的高可用性。
 负载均衡：与 AWS 负载均衡器结合使用，以分配流量到多个实例。
 # 问题
+<<<<<<< HEAD
 【1】dns 解析记录无法更新
 ALB 的后端health check 端口不对，导致LB 后端一直没有健康的节点，更正health check规则后，重新拉起了两台ec2，
 dig dns 一直看到的是旧的IP，无法更新。
+=======
+
+# 架构
+![image](https://github.com/myysophia/terraform-repo/assets/25994521/9d0866ae-a81b-4b7b-a6bf-ee7fd1f81c45)
+
+>>>>>>> 26c8133920b4f2e20d93094992b803016878f84c
