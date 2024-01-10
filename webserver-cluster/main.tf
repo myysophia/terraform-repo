@@ -103,6 +103,7 @@ resource "aws_lb_target_group" "asg" {
   vpc_id = data.aws_vpc.default.id
   target_type = "instance"
   health_check {
+    port = 8080
     path = "/"
     protocol = "HTTP"
     matcher = "200"
