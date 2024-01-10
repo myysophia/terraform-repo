@@ -136,11 +136,12 @@ resource "aws_security_group" "alb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
+# you can get the web serverto read datasource-mysql outputs from the database’s state file of s3 backend
 data "terraform_remote_state" "db" {
   backend = "s3"
 
   config = {
+    profile        = "nova-tf-test"
     bucket = var.db_remote_state_bucket
     key    = var.db_remote_state_key
     region = "us-east-2"
