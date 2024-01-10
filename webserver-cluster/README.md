@@ -6,7 +6,7 @@ resource "aws_instance" "example" {
     create_before_destroy = true
   }
 }
-
+```
 
 
 # 问题
