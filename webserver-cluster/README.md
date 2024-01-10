@@ -17,3 +17,7 @@ aws_autoscaling_group 利用 aws_launch_configuration 来管理一组 EC2 实例
 容错和高可用性：通过在多个可用区中分布实例来确保应用的高可用性。
 负载均衡：与 AWS 负载均衡器结合使用，以分配流量到多个实例。
 # 问题
+
+# 架构
+![image](https://github.com/myysophia/terraform-repo/assets/25994521/9d0866ae-a81b-4b7b-a6bf-ee7fd1f81c45)
+
