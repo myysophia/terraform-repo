@@ -15,7 +15,7 @@ provider "aws" {
   
 }
 
-
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration
 resource "aws_launch_configuration" "example" {
   image_id = "ami-0fb653ca2d3203ac1"
   instance_type = "t2.micro"
@@ -23,14 +23,14 @@ resource "aws_launch_configuration" "example" {
 
   user_data = <<-EOF
               #!/bin/bash
-              echo "Hello, World,NOVATFTEST1111111" > index.html
+              echo "Hello, World,NOVATFTEST WEBSERVER CLUSTER" > index.html
               nohup busybox httpd -f -p "${var.server_port}" &
               EOF
   lifecycle {
     create_before_destroy = true
   }              
 }
-
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group
 resource "aws_autoscaling_group" "example" {
   launch_configuration = aws_launch_configuration.example.name
   vpc_zone_identifier = data.aws_subnets.default.ids
@@ -65,7 +65,7 @@ data "aws_vpc" "default" {
   
 }
 
-data "aws_subnet_ids" "default" {
+data "aws_subnets" "default" {
   filter {
     name = "vpc-id"
     values = [data.aws_vpc.default.id]
