@@ -59,9 +59,10 @@ output "ip" {
 terraform apply 会输出展示EIP。
 
 3. 团队协作使用terraform创建资源，tfstate需要使用S3 + dynamicDB作为后端管理状态，[参考]([url](https://github.com/antonputra/tutorials/blob/main/lessons/040/provider.tf))
-需要有S3 + dynamicDB的权限。
+需要有[S3 + dynamicDB]([url](https://developer.hashicorp.com/terraform/language/settings/backends/s3))的权限(https://developer.hashicorp.com/terraform/language/settings/backends/s3)。
 
-4. 生成kubeconfig
+
+5. 生成kubeconfig
 确保在 ~/.aws/credentials 和 ~/.aws/config 文件中正确配置了 profile，包括它的名称、访问密钥、秘密密钥和可选的默认区域。
 aws eks update-kubeconfig --region <region-code> --name <cluster-name>
 aws eks update-kubeconfig --region ap-southeast-2 --name nova-eks-terraform
