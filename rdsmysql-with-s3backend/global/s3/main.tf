@@ -11,6 +11,7 @@ terraform {
 
 provider "aws" {
   region = "us-east-2"
+  profile = "nova-tf-test"
 }
 
 resource "aws_s3_bucket" "terraform_state" {

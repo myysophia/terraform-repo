@@ -23,6 +23,7 @@ terraform {
 
 provider "aws" {
   region = "us-east-2"
+  profile = "nova-tf-test"
 }
 
 resource "aws_db_instance" "example" {
