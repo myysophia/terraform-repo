@@ -48,6 +48,9 @@ Last-Modified: Wed, 10 Jan 2024 14:13:59 GMT
 <p>DB port: 3306</p>
 
 ```
+![image](https://github.com/myysophia/terraform-repo/assets/25994521/8b1b89a1-f9bc-4589-8c66-89ddec7fae1b)
+
+
 # 架构
 
 ![image](https://github.com/myysophia/terraform-repo/assets/25994521/fea39a8a-0ad4-44d6-aff0-2a2cdf12b367)
