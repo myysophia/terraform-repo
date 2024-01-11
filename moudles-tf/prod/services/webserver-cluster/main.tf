@@ -11,6 +11,7 @@ terraform {
 
 provider "aws" {
   region = "us-east-2"
+  profile = "nova-tf-test"
 }
 
 module "webserver_cluster" {
@@ -25,7 +26,7 @@ module "webserver_cluster" {
   max_size      = 10
 }
 
-resource "aws_autoscaling_schedule" "scale_out_during_business_hours" {
+resource "aws_autoscaling_schedule" "scale_out_during_business_hours" {# (1)  Create a scheduled scaling action to scale out the cluster during business hours
   scheduled_action_name = "scale-out-during-business-hours"
   min_size              = 2
   max_size              = 10
@@ -35,7 +36,7 @@ resource "aws_autoscaling_schedule" "scale_out_during_business_hours" {
   autoscaling_group_name = module.webserver_cluster.asg_name
 }
 
-resource "aws_autoscaling_schedule" "scale_in_at_night" {
+resource "aws_autoscaling_schedule" "scale_in_at_night" { # (2)  Create a scheduled scaling action to scale in the cluster at night
   scheduled_action_name = "scale-in-at-night"
   min_size              = 2
   max_size              = 10
