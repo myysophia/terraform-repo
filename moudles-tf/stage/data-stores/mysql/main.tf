@@ -29,8 +29,7 @@ provider "aws" {
 resource "aws_db_instance" "example" {
   identifier_prefix   = "terraform-up-and-running"
   engine              = "mysql"
-  engine_version       = "8.0"
-  # engine_version       = "8.0.20"  # 可以指定特定的版本
+  engine_version       = "8.0.28"  # 可以指定特定的版本
   allocated_storage   = 10
   instance_class      = "db.t2.micro"
   db_name             = var.db_name
