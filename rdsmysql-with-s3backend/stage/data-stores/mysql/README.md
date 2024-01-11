@@ -54,5 +54,7 @@ resource "aws_security_group" "default" {
 
 # 命令
 terraform init
+
 terraform apply
+
 terraform destroy
