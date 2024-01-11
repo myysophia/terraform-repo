@@ -58,6 +58,8 @@ resource "aws_security_group" "default" {
   }
 }
 ```
+terraform console中查看 特定资源的属性  aws_security_group.default.id
+![image](https://github.com/myysophia/terraform-repo/assets/25994521/ab0a62eb-2a38-4cbc-9054-a72e9509643e)
 
 # 命令
 terraform init
