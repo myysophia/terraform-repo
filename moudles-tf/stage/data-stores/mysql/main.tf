@@ -36,6 +36,6 @@ resource "aws_db_instance" "example" {
   username            = var.db_username
   password            = var.db_password
   skip_final_snapshot = true
-  parameter_group_name = "default:mysql-8.0"
+  parameter_group_name = "default.mysql8.0"
   allow_major_version_upgrade = true
 }
