@@ -81,11 +81,11 @@ resource "aws_lb" "example" {
 }
 
 resource "aws_lb_listener" "http" {
-  load_balancer_arn = aws_lb.example.arn
+  load_balancer_arn = aws_lb.example.arn # 在哪个负载均衡器上创建监听器
   port = 80
   protocol = "HTTP"
 
-  default_action {
+  default_action { # 默认的行为
     type = "fixed-response"
 
     fixed_response {
@@ -96,13 +96,13 @@ resource "aws_lb_listener" "http" {
   } 
 }
 
-resource "aws_lb_target_group" "asg" {
-  name = "terraform-example-asg"
+resource "aws_lb_target_group" "asg" { 
+  name = "terraform-example-asg" # aws_autoscaling_group 的名称，将负载均衡器和自动扩展组关联起来，负载均衡器会将请求转发到目标组中的实例。 弹性和可伸缩体现在这里。
   port = 80
   protocol = "HTTP"
   vpc_id = data.aws_vpc.default.id
   target_type = "instance"
-  health_check {
+  health_check { # LB的健康检查规则
     port = 8080
     path = "/"
     protocol = "HTTP"
@@ -116,7 +116,7 @@ resource "aws_lb_target_group" "asg" {
 }
 
 resource "aws_lb_listener_rule" "asg" {
-  listener_arn = aws_lb_listener.http.arn
+  listener_arn = aws_lb_listener.http.arn # 给监听器添加规则，规则的作用是将请求转发到目标组中的实例，action是什么？转到哪里？
   priority = 100
 
   condition {
@@ -126,7 +126,7 @@ resource "aws_lb_listener_rule" "asg" {
   }
   action {
     type = "forward"
-    target_group_arn = aws_lb_target_group.asg.arn
+    target_group_arn = aws_lb_target_group.asg.arn # 关联到目标组 terraform-example-asg
   }
 }
 
