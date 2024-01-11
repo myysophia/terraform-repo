@@ -139,6 +139,20 @@ resource "aws_security_group" "alb" {
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["10.50.10.10/32"]
+  }
+
+  ingress {
+    from_port = 8080
+    to_port = 8080
+    protocol = "tcp"
+    cidr_blocks = ["113.200.58.54/32"]
+  }
   # Allow all outbond requests
   egress {
     from_port = 0
