@@ -11,6 +11,7 @@ terraform {
 
 provider "aws" {
   region = "us-east-2"
+  profile = "nova-tf-test"
 }
 
 module "webserver_cluster" {
@@ -29,7 +30,7 @@ module "webserver_cluster" {
 
 resource "aws_security_group_rule" "allow_testing_inbound" {
   type              = "ingress"
-  security_group_id = module.webserver_cluster.alb_security_group_id
+  security_group_id = module.webserver_cluster.alb_security_group_id # (1)  Use the output variable from the module to get the security group ID  of the ALB
 
   from_port   = 12345
   to_port     = 12345
