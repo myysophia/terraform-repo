@@ -18,6 +18,9 @@ address = "terraform-up-and-running20240110133953647200000001.criagiq2we20.us-ea
 port = 3306
 
 ```
+【4】默认是只有vpc内可以连接，如何外部访问呢？
+
+
 
 # 命令
 terraform init

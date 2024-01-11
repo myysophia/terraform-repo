@@ -38,7 +38,7 @@ resource "aws_db_instance" "example" {
   password = var.db_password
 }
 
-resource "aws_security_group" "example" {
+resource "aws_security_group" "default" {
   ingress {
     from_port   = 3306
     to_port     = 3306
