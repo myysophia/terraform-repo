@@ -41,6 +41,11 @@ resource "aws_db_instance" "example" {
   allow_major_version_upgrade = true
   publicly_accessible = true
   vpc_security_group_ids = [aws_security_group.default.id]
+
+lifecycle {
+  create_before_destroy = true
+}
+
 }
 resource "aws_security_group" "default" {
   ingress {
