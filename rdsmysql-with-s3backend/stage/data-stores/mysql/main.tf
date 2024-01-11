@@ -25,16 +25,24 @@ provider "aws" {
   region = "us-east-2"
   profile = "nova-tf-test"
 }
-
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
 resource "aws_db_instance" "example" {
   identifier_prefix   = "terraform-up-and-running"
   engine              = "mysql"
   allocated_storage   = 10
   instance_class      = "db.t2.micro"
   skip_final_snapshot = true
-
+  publicly_accessible = true
   db_name             = var.db_name
-
   username = var.db_username
   password = var.db_password
+}
+
+resource "aws_security_group" "example" {
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["113.200.54.58"]
+  }
 }
