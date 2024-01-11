@@ -14,7 +14,7 @@ terraform {
 
     # bucket         = "<YOUR S3 BUCKET>"
     # key            = "<SOME PATH>/terraform.tfstate"
-    # region         = "us-east-2"
+    region         = "us-east-2"
     # dynamodb_table = "<YOUR DYNAMODB TABLE>"
     # encrypt        = true
   }
