@@ -20,7 +20,37 @@ port = 3306
 ```
 【4】默认是只有vpc内可以连接，如何外部访问呢？
 
+```
+resource "aws_db_instance" "example" {
+  identifier_prefix   = "terraform-test"
 
+  publicly_accessible = true
+
+}
+```
+还是原来的地址, publicly_accessible代表外部可访问，前提是放行对应的安全组。
+```
+terraform-up-and-running20240110133953647200000001.criagiq2we20.us-east-2.rds.amazonaws.com 3306
+
+```
+
+【5】创建的实例如何关联安全组？
+```
+resource "aws_db_instance" "example" {
+...
+  # 在aws_db_instance 中进行关联
+  vpc_security_group_ids = [aws_security_group.default.id]
+}
+# 定义可以访问mysql的安全组
+resource "aws_security_group" "default" {
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["10.10.10.10/32"]
+  }
+}
+```
 
 # 命令
 terraform init

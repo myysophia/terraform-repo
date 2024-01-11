@@ -27,7 +27,7 @@ provider "aws" {
 }
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
 resource "aws_db_instance" "example" {
-  identifier_prefix   = "terraform-up-and-running"
+  identifier_prefix   = "terraform-nova-test"
   engine              = "mysql"
   allocated_storage   = 10
   instance_class      = "db.t2.micro"
