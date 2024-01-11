@@ -121,11 +121,11 @@ resource "aws_lb_listener_rule" "asg" {
 
   condition {
     path_pattern {
-      values = ["*"]
+      values = ["*"] # 匹配所有的请求, *表示通配符，可以是/api/*。
     }
   }
   action {
-    type = "forward"
+    type = "forward" # redirect，重定向
     target_group_arn = aws_lb_target_group.asg.arn # 关联到目标组 terraform-example-asg
   }
 }

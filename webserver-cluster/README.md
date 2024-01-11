@@ -24,6 +24,51 @@ aws_autoscaling_group 利用 aws_launch_configuration 来管理一组 EC2 实例
 监听器 (aws_lb_listener) 附加到负载均衡器上，监听特定的端口和协议。
 监听器规则 (aws_lb_listener_rule) 决定根据特定条件（如 URL 路径）将流量转发到哪个目标组。
 目标组 (aws_lb_target_group) 接收符合规则的流量，并将其分发到其下的目标（如 EC2 实例）。
+
+【4】aws_lb_listener_rule 的action type中forward和redirect使用场景是什么？
+AWS 的 aws_lb_listener_rule 资源中，action 定义了负载均衡器在匹配到特定规则时应采取的操作。其中，forward 和 redirect 是两种常用的操作类型，它们在不同的场景中发挥作用。
+
+Forward（转发）
+作用：forward 动作用于将流量转发到一个或多个目标组。它是最常见的动作类型，用于常规的负载均衡。
+使用场景：
+应用流量分发：将入站流量基于特定条件（如请求路径或主机头）分发到不同的后端服务器或服务。例如，将对 /api 的请求转发到 API 服务器的目标组，而将其他请求转发到静态内容的目标组。
+微服务架构：在微服务架构中，根据服务的路径或其他标识符将流量转发到相应的服务。
+
+Redirect（重定向）
+作用：redirect 动作用于重定向客户端到一个不同的 URL。这可以包括更改协议（如从 HTTP 到 HTTPS）、主机名、路径或查询字符串。
+使用场景：
+HTTP 到 HTTPS：自动将 HTTP 请求重定向到 HTTPS，以提高安全性。例如，当用户访问 http://example.com 时，将其重定向到 https://example.com。
+URL 重写：更改请求的路径或查询参数。例如，基于旧网站的 URL 结构重定向到新网站的 URL。
+维护或暂时重定向：在网站维护或临时性事件期间，将流量重定向到其他页面或网站。
+
+```
+resource "aws_lb_listener_rule" "example" {
+  listener_arn = aws_lb_listener.example.arn
+
+  action {
+    type = "forward"
+    target_group_arn = aws_lb_target_group.example.arn
+  }
+}
+
+resource "aws_lb_listener_rule" "redirect" {
+  listener_arn = aws_lb_listener.example.arn
+
+  action {
+    type = "redirect"
+    redirect {
+      protocol   = "HTTPS"
+      port       = "443"
+      status_code = "HTTP_301"
+    }
+  }
+
+.
+}
+
+```
+
+
 # 问题
 
 【1】dns 解析记录无法更新
