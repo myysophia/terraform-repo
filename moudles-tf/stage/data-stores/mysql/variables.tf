@@ -26,3 +26,10 @@ variable "db_name" {
   default     = "example_database_stage"
 }
 
+
+variable "db_name_replicas" {
+  description = "The name to use for the database"
+  type        = string
+  default     = "example_database_stage_replicas"
+  
+}
