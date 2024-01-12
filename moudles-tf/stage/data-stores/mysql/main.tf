@@ -63,7 +63,7 @@ resource "aws_db_instance" "example" {
   backup_window               = "03:00-06:00"
   maintenance_window          = "Sun:00:00-Sun:03:00"
   auto_minor_version_upgrade  = true
-  final_snapshot_identifier   = "mydb-final-snapshot-${random_string.snapshot_suffix.result}"
+  final_snapshot_identifier   = "mydb-final-snapshot-1"
   deletion_protection         = true
 }
 
