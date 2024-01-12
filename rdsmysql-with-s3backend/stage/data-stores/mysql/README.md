@@ -61,6 +61,13 @@ resource "aws_security_group" "default" {
 terraform console中查看 特定资源的属性  aws_security_group.default.id
 ![image](https://github.com/myysophia/terraform-repo/assets/25994521/ab0a62eb-2a38-4cbc-9054-a72e9509643e)
 
+# mysql 如何升级？
+修改aws_db_instance的engine_version。 实际上是无法做到原地升级的，尽管terraform apply返回成功。
+数据库升级应该考虑数据的备份与恢复、停机时间、兼容性...。
+
+![image](https://github.com/myysophia/terraform-repo/assets/25994521/ce7ae5bb-af49-43cb-a31c-e693dbbc3769)
+
+
 # 命令
 terraform init
 
