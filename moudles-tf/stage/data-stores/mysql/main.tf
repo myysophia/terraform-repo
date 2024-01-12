@@ -68,7 +68,7 @@ resource "aws_db_instance" "example" {
 }
 
 resource "aws_db_instance" "replicas" {
-  identifier             = var.db_name_replicas
+  identifier             = "mydb-replica"
   replicate_source_db    = aws_db_instance.example.id
   instance_class         = "db.t2.micro"
   multi_az               = false # 只读副本通常不需要 multi_az
