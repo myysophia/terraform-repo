@@ -68,6 +68,48 @@ terraform console中查看 特定资源的属性  aws_security_group.default.id
 ![image](https://github.com/myysophia/terraform-repo/assets/25994521/ce7ae5bb-af49-43cb-a31c-e693dbbc3769)
 
 
+# 创建高可用集群
+- 多AZ高可用
+- 多AZ集群
+![企业微信截图_17050494832996](https://github.com/myysophia/terraform-repo/assets/25994521/31d226e4-e708-4296-8f20-c52214bddcf3)
+1. terraform 代码
+```
+resource "aws_db_instance" "example" {
+  identifier_prefix           = "terraform-up-and-running"
+  engine                      = "mysql"
+  engine_version              = "8.0.28" # 可以指定特定的版本
+  allocated_storage           = 10
+  storage_type                = "gp2"
+  instance_class              = "db.t2.micro"
+  db_name                     = var.db_name
+  username                    = var.db_username
+  password                    = var.db_password
+  skip_final_snapshot         = true
+  parameter_group_name        = "default.mysql8.0"
+  allow_major_version_upgrade = true
+  publicly_accessible         = true
+  vpc_security_group_ids      = [aws_security_group.default.id]
+  multi_az                    = true
+  backup_retention_period     = 7
+  backup_window               = "03:00-06:00"
+  maintenance_window          = "Sun:00:00-Sun:03:00"
+  auto_minor_version_upgrade  = true
+  final_snapshot_identifier   = "mydb-final-snapshot-1"
+  deletion_protection         = true
+}
+
+resource "aws_db_instance" "replicas" {
+  identifier             = "mydb-replica"
+  replicate_source_db    = aws_db_instance.example.id
+  instance_class         = "db.t2.micro"
+  multi_az               = false # 只读副本通常不需要 multi_az
+  vpc_security_group_ids = [aws_security_group.default.id]
+}
+```
+2. terraform apply大概需要14 + 9mins
+   ![image](https://github.com/myysophia/terraform-repo/assets/25994521/85f3ded7-bba8-47e1-a41b-a57274b849ff)
+
+
 # 命令
 terraform init
 
