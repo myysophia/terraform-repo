@@ -33,7 +33,7 @@ resource "aws_autoscaling_schedule" "scale_out_during_business_hours" {# (1)  Cr
   desired_capacity      = 10
   recurrence            = "0 9 * * *"
 
-  autoscaling_group_name = module.webserver_cluster.asg_name
+  autoscaling_group_name = module.webserver_cluster.asg_name # 指向的是ASG
 }
 
 resource "aws_autoscaling_schedule" "scale_in_at_night" { # (2)  Create a scheduled scaling action to scale in the cluster at night
@@ -43,6 +43,6 @@ resource "aws_autoscaling_schedule" "scale_in_at_night" { # (2)  Create a schedu
   desired_capacity      = 2
   recurrence            = "0 17 * * *"
 
-  autoscaling_group_name = module.webserver_cluster.asg_name
+  autoscaling_group_name = module.webserver_cluster.asg_name  # 指向的是ASG
 }
 

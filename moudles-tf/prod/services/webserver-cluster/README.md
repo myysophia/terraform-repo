@@ -1,71 +1,25 @@
-# Web server cluster example (production environment)
-
-This folder contains an example [Terraform](https://www.terraform.io/) configuration that deploys a cluster of web servers 
-(using [EC2](https://aws.amazon.com/ec2/) and [Auto Scaling](https://aws.amazon.com/autoscaling/)) and a load balancer
-(using [ELB](https://aws.amazon.com/elasticloadbalancing/)) in an [Amazon Web Services (AWS) 
-account](http://aws.amazon.com/). The load balancer listens on port 80 and returns the text "Hello, World" for the 
-`/` URL. The code for the cluster and load balancer are defined as a Terraform module in
-[modules/services/webserver-cluster](../../../modules/services/webserver-cluster).
-
-For more info, please see Chapter 4, "How to Create Reusable Infrastructure with Terraform Modules", of 
-*[Terraform: Up and Running](http://www.terraformupandrunning.com)*.
-
-## Pre-requisites
-
-* You must have [Terraform](https://www.terraform.io/) installed on your computer. 
-* You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
-* You must deploy the MySQL database in [data-stores/mysql](../../data-stores/mysql) BEFORE deploying the
-  configuration in this folder.
-
-Please note that this code was written for Terraform 1.x.
-
-## Quick start
-
-**Please note that this example will deploy real resources into your AWS account. We have made every effort to ensure 
-all the resources qualify for the [AWS Free Tier](https://aws.amazon.com/free/), but we are not responsible for any
-charges you may incur.** 
-
-Configure your [AWS access 
-keys](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) as 
-environment variables:
-
+# 知识点
+【1】 如何按照时间段进行扩缩容
+例如早上九点，需要将ASG 扩容为10台，下午17点之后需要将ASG 缩容为2台，以此来提升资源利用率，节省成本。
+aws_autoscaling_schedule
 ```
-export AWS_ACCESS_KEY_ID=(your access key id)
-export AWS_SECRET_ACCESS_KEY=(your secret access key)
-```
+resource "aws_autoscaling_schedule" "scale_out_during_business_hours" {# (1)  Create a scheduled scaling action to scale out the cluster during business hours
+  scheduled_action_name = "scale-out-during-business-hours"
+  min_size              = 2
+  max_size              = 10
+  desired_capacity      = 10
+  recurrence            = "0 9 * * *" # 每天9点
 
-In `variables.tf`, fill in the name of the S3 bucket and key where the remote state is stored for the MySQL database
-(you must deploy the configuration in [data-stores/mysql](../../data-stores/mysql) first):
-
-```hcl
-variable "db_remote_state_bucket" {
-  description = "The name of the S3 bucket used for the database's remote state storage"
-  type        = string
-  default     = "<YOUR BUCKET NAME>"
+  autoscaling_group_name = module.webserver_cluster.asg_name
 }
 
-variable "db_remote_state_key" {
-  description = "The name of the key in the S3 bucket used for the database's remote state storage"
-  type        = string
-  default     = "<YOUR STATE PATH>"
+resource "aws_autoscaling_schedule" "scale_in_at_night" { # (2)  Create a scheduled scaling action to scale in the cluster at night
+  scheduled_action_name = "scale-in-at-night"
+  min_size              = 2
+  max_size              = 10
+  desired_capacity      = 2
+  recurrence            = "0 17 * * *" # 每天五点
+
+  autoscaling_group_name = module.webserver_cluster.asg_name
 }
-```
-
-Deploy the code:
-
-```
-terraform init
-terraform apply
-```
-
-When the `apply` command completes, it will output the DNS name of the load balancer. To test the load balancer:
-
-```
-curl http://<alb_dns_name>/
-```
-
-Clean up when you're done:
-
-```
-terraform destroy
 ```
