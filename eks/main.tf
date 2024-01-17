@@ -25,29 +25,29 @@ resource "random_string" "suffix" {
 }
 
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
+  source  = "terraform-aws-modules/vpc/aws" # 可基于开源的moudle自定义适配业务的moudle
   version = "5.0.0"
 
   name = "terrform-nova-test-vpc"
 
   cidr = "10.0.0.0/16"
-  azs  = slice(data.aws_availability_zones.available.names, 0, 3)
+  azs  = slice(data.aws_availability_zones.available.names, 0, 3) # 选择可用区（AZs）。这里它从 AWS 的可用区数据源中选择前三个可用区。这是因为我们将在这些可用区中部署我们的 EKS 集群和节点组。
 
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   public_subnets  = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
 
-  enable_nat_gateway   = true
-  single_nat_gateway   = true
-  enable_dns_hostnames = true
+  enable_nat_gateway   = true # 为了让节点组能够访问互联网，我们需要启用 NAT 网关。这个模块会自动创建 NAT 网关，并将它们与私有子网相关联。
+  single_nat_gateway   = true # 为了简单起见，我们只创建一个 NAT 网关。这意味着所有的私有子网都将使用同一个 NAT 网关。
+  enable_dns_hostnames = true 
 
   public_subnet_tags = {
-    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
-    "kubernetes.io/role/elb"                      = 1
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared" # 为了让 EKS 集群能够识别出哪些子网是公共子网，我们需要为它们添加一个特殊的标签。这个标签的键是 kubernetes.io/cluster/${local.cluster_name}，值是 shared。
+    "kubernetes.io/role/elb"                      = 1 # 公共负载均衡器
   }
 
   private_subnet_tags = {
     "kubernetes.io/cluster/${local.cluster_name}" = "shared"
-    "kubernetes.io/role/internal-elb"             = 1
+    "kubernetes.io/role/internal-elb"             = 1 # 内部负载均衡器
   }
 }
 

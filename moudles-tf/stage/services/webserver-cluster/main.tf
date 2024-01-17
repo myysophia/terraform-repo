@@ -15,7 +15,8 @@ provider "aws" {
 }
 
 module "webserver_cluster" {
-  source = "../../../modules/services/webserver-cluster"
+  # 最好是将这个source上传到git 使用版本管理起来。例如: "github.com/foo/modules//services/webserver-cluster?ref=v0.0.1" 
+  source = "../../../modules/services/webserver-cluster" 
 
   # (parameters hidden for clarity)
 

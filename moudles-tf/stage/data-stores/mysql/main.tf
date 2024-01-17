@@ -38,15 +38,15 @@ provider "aws" {
 #   skip_final_snapshot         = true
 #   parameter_group_name        = "default.mysql8.0"
 #   allow_major_version_upgrade = true
-#   publicly_accessible         = true
+#   publicly_accessible         = true # 允许公网访问
 #   vpc_security_group_ids      = [aws_security_group.default.id]
 
 # }
 
 resource "aws_db_instance" "example" {
-  identifier_prefix           = "terraform-up-and-running"
+  identifier_prefix           = "vnnox-au-withtf"
   engine                      = "mysql"
-  engine_version              = "8.0.28" # 可以指定特定的版本
+  engine_version              = "5.7.44" # 可以指定特定的版本
   allocated_storage           = 10
   storage_type                = "gp2"
   instance_class              = "db.t2.micro"
@@ -54,7 +54,7 @@ resource "aws_db_instance" "example" {
   username                    = var.db_username
   password                    = var.db_password
   skip_final_snapshot         = true
-  parameter_group_name        = "default.mysql8.0"
+  parameter_group_name        = "default.mysql5.7"
   allow_major_version_upgrade = true
   publicly_accessible         = true
   vpc_security_group_ids      = [aws_security_group.default.id]
@@ -67,13 +67,14 @@ resource "aws_db_instance" "example" {
   deletion_protection         = true
 }
 
-resource "aws_db_instance" "replicas" {
-  identifier             = "mydb-replica"
-  replicate_source_db    = aws_db_instance.example.id
-  instance_class         = "db.t2.micro"
-  multi_az               = false # 只读副本通常不需要 multi_az
-  vpc_security_group_ids = [aws_security_group.default.id]
-}
+# resource "aws_db_instance" "replicas" {
+#   identifier             = "mydb-replica"
+#   replicate_source_db    = aws_db_instance.example.id
+#   instance_class         = "db.t2.micro"
+#   multi_az               = false # 只读副本通常不需要 multi_az
+#   vpc_security_group_ids = [aws_security_group.default.id]
+# publicly_accessible         = true
+# }
 
 
 resource "random_string" "snap_suffix" {
