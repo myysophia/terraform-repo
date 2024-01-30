@@ -45,6 +45,7 @@ Plan: 2 to add, 2 to change, 2 to destroy.
 for i in {1..1000};do curl -I http://webservers-stage-xxxxx.us-east-2.elb.amazonaws.com/;sleep 1;done
 ```
 假如一直有连接上来，targets 的health status有一段时间一直是draining，这个connection draining 默认是300s。排空期间不会接受新链接；但是已建立的连接依然能发送请求。
+![aws ALB connection drain ](https://github.com/myysophia/terraform-repo/assets/25994521/a58c52e7-2598-49fa-87dc-64c691085642)
 
 ### 3.1 aws中target group的health status为draining会持续多久？能确保连接都排空了吗？
 在 AWS 中，当目标组(Target Group)的健康状态显示为 Draining 时，这意味着目标（例如 EC2 实例）正在被注销，并且负载均衡器正在停止向该目标发送新的请求。Draining 状态通常出现在使用 Elastic Load Balancing (ELB) 的自动缩放过程中，特别是在执行缩容操作时。
