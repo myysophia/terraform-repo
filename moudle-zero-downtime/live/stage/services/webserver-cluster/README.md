@@ -1,5 +1,6 @@
 # 传统方式的零宕机
-## 0. 需要先部署mysql，并将状态存储在S3中
+使用create_before_destroy 和min_elb_capacity 保证服务不中断，terraform 1.1 之后新增了refresh模块原生支持零宕机。
+## 1. 需要先部署mysql，并将状态存储在S3中
 部署mysql时可以设置默认值也可以apply的时候输入
 ```hcl
 variable "db_remote_state_bucket" {
@@ -14,9 +15,6 @@ variable "db_remote_state_key" {
   default     = "<YOUR STATE PATH>"
 }
 ```
-
-## 1. create_before_destroy 和min_elb_capacity 保证服务不中断
-
 
 ## 2. 修改server_text, 触发ASG 的改变
 terraform plan
