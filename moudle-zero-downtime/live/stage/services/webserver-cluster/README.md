@@ -69,7 +69,7 @@ Draining 状态下，负载均衡器确实会等待正在进行的请求完成�
 如果你的应用使用长连接（如 WebSocket），需要特别注意去注册延迟的设置，以确保连接可以优雅关闭。
 在使用 Draining 状态和设置去注册延迟时，最好的做法是根据你的应用特性（如请求的平均持续时间、流量模式等）进行调整和测试，确保设置能满足平滑缩容的需求而不会导致服务中断。如果需要，你也可以通过应用程序逻辑来优雅地管理连接关闭。
 
-4. 部署
+## 4. 部署
 
 ```
 terraform init
@@ -77,6 +77,6 @@ terraform apply
 terraform destroy
 ```
 
-5. 关于变量
+## 5. 关于变量
 - stage的变量优先级高于moudle的优先级。
 - db_remote_state_bucket 和 db_remote_state_key 要和mysql 存储状态的位置一样
