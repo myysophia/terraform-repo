@@ -32,7 +32,7 @@ resource "aws_autoscaling_group" "example" {
   vpc_zone_identifier  = data.aws_subnets.default.ids
   target_group_arns    = [aws_lb_target_group.asg.arn]
   health_check_type    = "ELB"
-
+  # desired_capacity = var.min_size # 扩容后desired_capacity会变成当前的服务器数量，再缩容时如果小于这个desired_capacity会缩容失败
   min_size = var.min_size
   max_size = var.max_size
 
@@ -72,7 +72,7 @@ resource "aws_autoscaling_schedule" "scale_out_during_business_hours" {
   min_size               = 2
   max_size               = 10
   desired_capacity       = 10
-  recurrence             = "0 9 * * *"
+  recurrence             = "30 06 * * *"
   autoscaling_group_name = aws_autoscaling_group.example.name
 }
 
@@ -83,7 +83,7 @@ resource "aws_autoscaling_schedule" "scale_in_at_night" {
   min_size               = 2
   max_size               = 10
   desired_capacity       = 2
-  recurrence             = "0 17 * * *"
+  recurrence             = "50 06 * * *"
   autoscaling_group_name = aws_autoscaling_group.example.name
 }
 
